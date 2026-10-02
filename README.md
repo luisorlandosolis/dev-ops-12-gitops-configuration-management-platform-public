@@ -2,14 +2,14 @@
 
 ![Dev-Ops-12 Architecture](diagrams/dev-ops-12-architecture.png)
 
+![Terraform](https://img.shields.io/badge/Terraform-IaC-7B42BC?style=flat-square&logo=terraform&logoColor=white)
+![YAML](https://img.shields.io/badge/YAML-Configuration-CB171E?style=flat-square&logo=yaml&logoColor=white)
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-Platform-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
 ![ArgoCD](https://img.shields.io/badge/ArgoCD-GitOps-EF7B4D?style=flat-square&logo=argo&logoColor=white)
 ![Kyverno](https://img.shields.io/badge/Kyverno-Policy--as--Code-3371E3?style=flat-square)
 ![Azure Key Vault](https://img.shields.io/badge/Azure-Key%20Vault-0078D4?style=flat-square&logo=microsoftazure&logoColor=white)
 ![cert-manager](https://img.shields.io/badge/cert--manager-PKI%20%2F%20TLS-2496ED?style=flat-square)
-![NetworkPolicy](https://img.shields.io/badge/Kubernetes-NetworkPolicy-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
-![YAML](https://img.shields.io/badge/YAML-Configuration-CB171E?style=flat-square&logo=yaml&logoColor=white)
-
+![NetworkPolicy](https://img.shields.io/badge/K8s-NetworkPolicy-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
 ## Overview
 
 Dev-Ops-12 implements a GitOps operating model for Kubernetes using ArgoCD.
