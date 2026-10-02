@@ -1,0 +1,53 @@
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: argocd-selfsigned-bootstrap
+  namespace: argocd
+spec:
+  selfSigned: {}
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argocd-root-ca
+  namespace: argocd
+spec:
+  isCA: true
+  commonName: argocd-internal-root-ca
+  secretName: argocd-root-ca
+  privateKey:
+    algorithm: RSA
+    size: 2048
+  issuerRef:
+    name: argocd-selfsigned-bootstrap
+    kind: Issuer
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: argocd-ca-issuer
+  namespace: argocd
+spec:
+  ca:
+    secretName: argocd-root-ca
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argocd-ingress-certificate
+  namespace: argocd
+spec:
+  secretName: argocd-tls
+  commonName: argocd.example.internal
+  dnsNames:
+    - argocd.example.internal
+  usages:
+    - server auth
+    - digital signature
+    - key encipherment
+  privateKey:
+    algorithm: RSA
+    size: 2048
+  issuerRef:
+    name: argocd-ca-issuer
+    kind: Issuer

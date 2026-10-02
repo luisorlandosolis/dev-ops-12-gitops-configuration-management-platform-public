@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: nginx-demo
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/EXAMPLE-ORG/dev-ops-12-gitops-configuration-management-platform.git
+    targetRevision: HEAD
+    path: kubernetes/environments/dev/nginx-demo
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: nginx-demo
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
